@@ -1,0 +1,25 @@
+version: '3'
+
+networks:
+  xerinitest:
+    driver: bridge
+
+services:
+
+  postgresql:
+    restart: always
+    image: postgres:10
+    container_name: postgresql
+    ports:
+      - "5432:5432"
+    environment:
+      - DEBUG=false
+      - POSTGRES_USER=test_user
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=maindb
+    networks:
+      - xerinitest
+
+volumes:
+  schemas:
+    external: false
