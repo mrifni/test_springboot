@@ -1,0 +1,14 @@
+spring:
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    generate-ddl: true
+
+  datasource:
+#    database: maindb
+    username: test_user
+    password: admin
+    url: jdbc:postgresql://localhost:5432/maindb
+    driver-class-name: org.postgresql.Driver
+

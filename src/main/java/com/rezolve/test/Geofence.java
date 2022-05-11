@@ -11,16 +11,16 @@ public class Geofence {
 
     @Id
     @Column(name = "id", updatable = false)
-    String id = null;
+    private String id = null;
 
     @Column(name = "lat")
-    double lat;
+    private double lat;
 
     @Column(name = "lng")
-    double lng;
+    private double lng;
 
     @Column(name = "radius")
-    double radius;
+    private double radius;
 
     public String getId() {
         return id;

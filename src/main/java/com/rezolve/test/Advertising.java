@@ -1,9 +1,6 @@
 package com.rezolve.test;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Table
 @Entity(name = "advertisings")
@@ -11,16 +8,14 @@ public class Advertising {
 
     @Id
     @Column(name = "id", updatable = false)
-    String id = null;
+    private String id = null;
 
     @Column(name = "href")
-    String href;
+    private String href;
 
-    @Column(name = "lng")
-    double lng;
-
-    @Column(name = "radius")
-    double radius;
+    @OneToOne
+    @JoinColumn
+    private Geofence geofence;
 
     public String getId() {
         return id;
@@ -30,27 +25,19 @@ public class Advertising {
         this.id = id;
     }
 
-    public double getLat() {
-        return lat;
+    public String getHref() {
+        return href;
     }
 
-    public void setLat(double lat) {
-        this.lat = lat;
+    public void setHref(String href) {
+        this.href = href;
     }
 
-    public double getLng() {
-        return lng;
+    public Geofence getGeofence() {
+        return geofence;
     }
 
-    public void setLng(double lng) {
-        this.lng = lng;
-    }
-
-    public double getRadius() {
-        return radius;
-    }
-
-    public void setRadius(double radius) {
-        this.radius = radius;
+    public void setGeofence(Geofence geofence) {
+        this.geofence = geofence;
     }
 }
