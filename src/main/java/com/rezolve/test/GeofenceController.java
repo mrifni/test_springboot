@@ -1,9 +1,9 @@
 package com.rezolve.test;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
@@ -18,8 +18,8 @@ public class GeofenceController {
         this.handler = handler;
     }
 
-    @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<String> create(@Valid @RequestBody GeofenceObj body){
+    @PostMapping(consumes = "application/json", produces = "application/json")
+    public ResponseEntity<String> create(@Valid @RequestBody GeofenceObj body) {
         return handler.create(body);
     }
 }

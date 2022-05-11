@@ -2,8 +2,8 @@ package com.rezolve.test;
 
 import javax.persistence.*;
 
-@Table
-@Entity(name = "advertisings")
+@Table(name = "Advertising")
+@Entity
 public class Advertising {
 
     @Id

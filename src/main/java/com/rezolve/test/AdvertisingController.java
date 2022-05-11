@@ -15,22 +15,22 @@ public class AdvertisingController {
         this.handler = handler;
     }
 
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
     public ResponseEntity<String> create(@PathVariable String geofenceId, @Valid @RequestBody AdvertisingObj body) {
         return handler.create(geofenceId, body);
     }
 
-    @RequestMapping(method = RequestMethod.DELETE, value = "/{advertisingId}")
+    @RequestMapping(method = RequestMethod.DELETE, value = "/{advertisingId}", consumes = "application/json", produces = "application/json")
     public ResponseEntity<String> delete(@PathVariable String geofenceId, @PathVariable String advertisingId) {
         return handler.delete(geofenceId, advertisingId);
     }
 
-    @RequestMapping(method = RequestMethod.PUT, value = "/{advertisingId}")
+    @RequestMapping(method = RequestMethod.PUT, value = "/{advertisingId}", consumes = "application/json", produces = "application/json")
     public ResponseEntity<String> update(@PathVariable String geofenceId, @PathVariable String advertisingId, @Valid @RequestBody AdvertisingObj body) {
         return handler.update(geofenceId, advertisingId, body);
     }
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET, consumes = "application/json", produces = "application/json")
     public ResponseEntity<String> getAll(@PathVariable String geofenceId) {
         return handler.getAll(geofenceId);
     }

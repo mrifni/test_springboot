@@ -62,7 +62,7 @@ public class AdvertisingControllerHandler {
             obj.addProperty("href", advertising.getHref());
             obj.addProperty("radius", geofence.getRadius());
 
-            ads.add(ads);
+            ads.add(obj);
         }
 
         return ResponseEntity.ok().body(ads.toString());

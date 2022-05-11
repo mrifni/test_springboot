@@ -4,6 +4,7 @@ import com.google.gson.JsonObject;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.AutoConfigureTestEntityManager;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
@@ -22,6 +23,7 @@ import org.springframework.transaction.annotation.Transactional;
 @AutoConfigureMockMvc(addFilters = false)
 @Transactional
 @ContextConfiguration
+@EntityScan
 public class GeofenceControllerTest {
 
     @Autowired
@@ -31,7 +33,7 @@ public class GeofenceControllerTest {
     private TestEntityManager testEntityManager;
 
     @Test
-    public void test() throws Exception {
+    public void test_create() throws Exception {
         double lat = 51.0000;
         double lng = 51.0000;
         double radius = 10;

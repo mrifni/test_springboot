@@ -5,8 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Table
-@Entity(name = "geofences")
+@Table(name = "geofences")
+@Entity
 public class Geofence {
 
     @Id

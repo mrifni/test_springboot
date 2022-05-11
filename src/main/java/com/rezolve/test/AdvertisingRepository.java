@@ -49,6 +49,9 @@ public class AdvertisingRepository {
 
     @Transactional
     public void update(Advertising advertising, AdvertisingObj body) {
+        // check href is reachable
+        HttpUrlTest.test(body.href);
+
         advertising.setHref(body.href);
         em.merge(advertising);
     }

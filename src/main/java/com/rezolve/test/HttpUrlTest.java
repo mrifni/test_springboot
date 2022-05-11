@@ -1,8 +1,6 @@
 package com.rezolve.test;
 
-import java.io.IOException;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 
 public class HttpUrlTest {
@@ -14,16 +12,14 @@ public class HttpUrlTest {
             connection = (HttpURLConnection) u.openConnection();
             connection.setRequestMethod("HEAD");
             int code = connection.getResponseCode();
+            System.out.println("URL status code - " + code);
             if (code != 200) {
-                throw new RuntimeException("Invalid status code " + code + " from URL " + href);
+                throw new RuntimeException("Invalid URL " + href);
             }
             // You can determine on HTTP return code received. 200 is success.
-        } catch (MalformedURLException e) {
+        } catch (Exception e) {
             // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            throw new RuntimeException("Invalid URL " + href);
         } finally {
             if (connection != null) {
                 connection.disconnect();

@@ -21,6 +21,7 @@ public class ControllerAdvice extends ResponseEntityExceptionHandler {
         BindingResult bindingResult = ex.getBindingResult();
         JsonObject message = new JsonObject();
 
+        ex.printStackTrace();
         if (!bindingResult.getFieldErrors().isEmpty()) {
             FieldError msg = bindingResult.getFieldErrors().get(0);
             message.addProperty("message", msg == null ? "Error in field " + msg.getField() : msg.getDefaultMessage());
@@ -34,6 +35,7 @@ public class ControllerAdvice extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<String> handleAllExceptions(Exception ex, WebRequest request) {
+        ex.printStackTrace();
 
         JsonObject data = new JsonObject();
         data.addProperty("error", ex.getMessage());

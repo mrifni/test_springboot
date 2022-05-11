@@ -16,6 +16,6 @@ public class GeofenceControllerHandler {
         Geofence geofence = geofenceRepository.create(body);
         JsonObject root = new JsonObject();
         root.addProperty("id", geofence.getId());
-        return ResponseEntity.ok().body("");
+        return ResponseEntity.ok().body(root.toString());
     }
 }

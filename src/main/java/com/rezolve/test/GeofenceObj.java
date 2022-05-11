@@ -4,9 +4,33 @@ import javax.validation.constraints.NotNull;
 
 public class GeofenceObj {
     @NotNull(message = "Lat is missing")
-    double lat;
+    Double lat;
     @NotNull(message = "Lng is missing")
-    double lng;
+    Double lng;
     @NotNull(message = "Radius is missing")
-    double radius;
+    Double radius;
+
+    public Double getLat() {
+        return lat;
+    }
+
+    public void setLat(Double lat) {
+        this.lat = lat;
+    }
+
+    public Double getLng() {
+        return lng;
+    }
+
+    public void setLng(Double lng) {
+        this.lng = lng;
+    }
+
+    public Double getRadius() {
+        return radius;
+    }
+
+    public void setRadius(Double radius) {
+        this.radius = radius;
+    }
 }
